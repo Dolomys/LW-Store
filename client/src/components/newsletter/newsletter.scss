@@ -1,0 +1,38 @@
+.newsletter {
+    height: calc(50vh - 70px);
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-size: 56px;
+    }
+
+    P {
+        font-size: 36PX;
+    }
+
+    form {  
+        display: flex;
+        align-items: center;
+        margin-top: 1em;
+        
+        input {
+            width: 20em;
+            font-size: 24px;
+        }
+
+        button {
+            color: white;
+            background-color: teal;
+            border: none;
+            padding: 10px;
+            width: 3em;
+            cursor: pointer;
+        }
+    }
+
+ 
+}
