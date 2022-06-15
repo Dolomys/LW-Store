@@ -1,6 +1,8 @@
 import { useState } from "react"
 import "./collections.scss"
 
+import { motion } from "framer-motion"
+
 export const Collections = () => {
 
     const [hovered, setHovered] = useState("")
@@ -41,7 +43,7 @@ export const Collections = () => {
   return (
     <div className="collections">
         {cats && cats.map(cat => (
-            <a 
+            <motion.a 
             href={cat.link}
             className={cat.display ? "cat " + cat.display : "cat"}
             onMouseEnter={() => setHovered(cat.img)}
@@ -56,7 +58,7 @@ export const Collections = () => {
             }
                 
                 
-            </a>
+            </motion.a>
         ))}
     </div>
   )

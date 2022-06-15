@@ -1,6 +1,8 @@
 import "./products.scss"
 
 import  {motion} from "framer-motion"
+import { Sort } from "../sort/Sort"
+import { Link } from "react-router-dom"
 
 export const Products = () => {
 
@@ -81,16 +83,18 @@ export const Products = () => {
   return (
     <div className="products">
       {products && products.map(product => (
-        <motion.a 
+        <motion.div
         className="singleProduct"
-        href={`/product/${product.id}`}
         whileHover={{scale:"1.1"}}
         whileTap={{scale:'0.9'}}
         >
+          <Link to={`/product/${product.id}`}>
             <img src={product.img} alt="product image" />
             <span className="productName">{product.name}</span>
             <span className="productPrice">{product.price}€</span>
-        </motion.a>
+          </Link>
+     
+        </motion.div>
       ))}
     </div>
   )

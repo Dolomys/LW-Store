@@ -2,6 +2,7 @@ import './topbar.scss'
 
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Topbar = ({menuOpen,setMenuOpen}) => {
 
@@ -18,7 +19,7 @@ export const Topbar = ({menuOpen,setMenuOpen}) => {
           </div>
         </div>
         <div className="center">
-          <a href="#intro" className='logo'>FW Store<span className='dot'>.</span></a>
+          <Link to="/" className='logo'>FW Store<span className='dot'>.</span></Link>
         </div>
         <div className="right">
           <div className="language" onClick={() => setEnglish(!english)}>
@@ -50,7 +51,7 @@ export const Topbar = ({menuOpen,setMenuOpen}) => {
             </svg>
             }
           </div>
-          <div className="cartIcon"><AiOutlineShoppingCart /></div>
+          <Link to ='/cart' className="cartIcon"><AiOutlineShoppingCart /></Link>
         </div>
       </div>
     </div>

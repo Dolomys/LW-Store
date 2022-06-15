@@ -1,0 +1,119 @@
+.singleProduct {
+    position: relative;
+    top: 70px;
+
+    display: flex;
+    height: calc(100vh - 70px);
+
+    .left{
+        flex: 1;
+        // background-color: coral;
+        // height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .imgContainer{
+            height: 90%;
+            width: 90%;
+            overflow: hidden;
+            // border: 5px solid black;
+        
+            img {
+                width: 100%;
+            }
+
+        }
+    }
+
+    .right{
+        flex: 1;
+        // height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+       
+
+        .productWrapper {
+        margin: 2em;
+        padding: 1em;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+
+
+            .productTitle{
+                font-size: 4em;
+                margin-bottom: 1rem;
+            }
+
+            .productDesc{
+                font-size: 1.3rem;
+                margin-bottom: 2rem;
+            }
+
+            .productPrice{
+                font-weight: 800;
+            }
+
+            .infos {
+                .colors {
+                    display: flex;
+                    align-items: center;
+
+                    span {
+                        font-size: 20px;
+                    }
+                    .color {
+                        margin-left: 10px;
+                        width: 1em;
+                        height: 1em;
+                        border-radius: 50%;
+                        cursor: pointer;
+
+                        &.active {
+                            border: 2px solid black;
+                            width: 1.2em;
+                            height: 1.2em;
+                        }
+                    }
+                }
+
+                .size {
+                    margin-top: 20px;
+                    font-size: 20px;
+
+                    select {
+                        margin-left: 1em;
+                        font-size: 20px;
+                    }
+                }
+            }
+
+            .addTo {
+                margin:2em 0 2em;
+                display: flex;
+                // justify-content: space-around;
+
+                button {
+                    border: none;
+                    font-size: 2em;
+                    align-items: center;
+                    color: white;
+                    background-color: #FCA200;
+                    padding: 0.5em;
+                    transition: all 0.4s ease;
+                    cursor: pointer;
+
+                    &.favorite {
+                        display: flex;
+                        align-items: center;
+                        background-color: rgb(255, 62, 62);
+                      
+                    }
+                }
+            }
+        }
+    }
+
+}
