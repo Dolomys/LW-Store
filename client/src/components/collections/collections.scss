@@ -1,9 +1,16 @@
+@import "../../global.scss";
+
 .collections {
     top: 70;
     position: relative;
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(380px, 1fr));
     grid-auto-rows: 50vmin;
+
+    @include mobile {
+        display: flex;
+        flex-direction: column;
+    }
 
     .card-tall {
         grid-row: span 2 / auto;
@@ -16,7 +23,7 @@
 
     .cat {
         background-repeat: no-repeat !important;
-        height: 100% !important;
+        height: 100%;
         background-size: cover !important;
         background-position: center !important;
         display: flex;
@@ -25,6 +32,10 @@
         align-items: center;
         transition: all .8s ease;
         text-decoration: none;
+
+        @include mobile {
+            height: 60vh;
+        }
 
         h3 {
             color: white;

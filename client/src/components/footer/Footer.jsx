@@ -10,20 +10,12 @@ export const Footer = () => {
         <div className="left">
             <h2 className='logo'>FW Store<span className='dot'>.</span></h2>
             <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur veniam numquam voluptatibus quisquam neque. 
-                Qui eligendi et vitae ducimus sequi ab, accusamus consectetur atque numquam rem tenetur corporis libero suscipi.
-            </p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur veniam numquam voluptatibus quisquam neque.             </p>
         </div>
         <div className="center">
             <h2>Links</h2>
             <div className="links">
-            <ul className="left">
-                <li>Home</li>
-                <li>Products</li>
-                <li>About</li>
-                <li>About</li>
-            </ul>
-            <ul className="right">
+            <ul>
                 <li>Home</li>
                 <li>Products</li>
                 <li>About</li>

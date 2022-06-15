@@ -1,6 +1,7 @@
 import { Footer } from "../../components/footer/Footer"
 import "./cart.scss"
 import { Link } from 'react-router-dom';
+import { BsFillTrash2Fill } from "react-icons/bs";
 
 export const Cart = () => {
   return (
@@ -26,9 +27,7 @@ export const Cart = () => {
             </div>
             <div className="productPrice">
               <div className="productAmount">
-                <span className="decrease">—</span>
-                <span>1</span>
-                <span className="increase">+</span>
+                <span><BsFillTrash2Fill /> </span>
               </div>
               <span>999€</span>
             </div>

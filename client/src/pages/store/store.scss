@@ -1,6 +1,12 @@
+@import "../../global.scss";
+
 .store{
     // height: calc(100vh -);
     top: 70px;
     position: relative;
     display: flex;
+
+    @include mobile {
+        flex-direction: column;
+    }
 }

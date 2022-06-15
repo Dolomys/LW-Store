@@ -1,9 +1,16 @@
+@import "../../global.scss";
+
 .singleProduct {
     position: relative;
     top: 70px;
 
     display: flex;
     height: calc(100vh - 70px);
+
+    @include mobile {
+        flex-direction: column;
+        height: 100%;
+    }
 
     .left{
         flex: 1;
