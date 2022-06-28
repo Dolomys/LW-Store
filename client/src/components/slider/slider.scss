@@ -19,8 +19,8 @@
     display: flex !important;
     width: 100% !important;
     height: calc(100vh - 70px);
-    background-color: bisque;
-    color: black;
+    background-color: #FCA200;
+    color: white;
 
     @include mobile {
         flex-direction: column;
@@ -69,12 +69,13 @@
         }
 
         a{
-            border: 1px solid black;
-            padding: 1em;
+            padding: 0.5em;
             width: 8em;
             text-decoration: none;
             text-align: center;
-            color: inherit;
+            color: black;
+            background-color: white;
+            border-radius: 10px;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             
             

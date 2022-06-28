@@ -2,11 +2,8 @@
 
 .store{
     // height: calc(100vh -);
-    top: 70px;
     position: relative;
     display: flex;
+    flex-direction: column;
 
-    @include mobile {
-        flex-direction: column;
-    }
 }

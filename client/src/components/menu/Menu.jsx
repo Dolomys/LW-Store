@@ -6,20 +6,20 @@ export const Menu = ({menuOpen, setMenuOpen}) => {
     <div className={"menu " + (menuOpen && "active")}>
         <ul>
         <li onClick={() => setMenuOpen(false)}>
-                <Link to="/products/?Soldes">SOLDES</Link>
+                <Link to="/">Home</Link>
             </li>
             <li onClick={() => setMenuOpen(false)}>
-                <Link to="/products/?News">Nouveautés</Link>
+                <Link to="/products/">Products</Link>
             </li>
             <li onClick={() => setMenuOpen(false)}>
-                <Link to="/products/?Man">Homme</Link>
+                <Link to="/cart">Cart</Link>
             </li>
-            <li onClick={() => setMenuOpen(false)}>
+            {/* <li onClick={() => setMenuOpen(false)}>
                 <Link to="/products/?Women">Femme</Link>
             </li>
             <li onClick={() => setMenuOpen(false)}>
                 <Link to="/products/?Kids">Enfants</Link>
-            </li>
+            </li> */}
         </ul>
     </div>
   )

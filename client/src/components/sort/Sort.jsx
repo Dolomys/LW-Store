@@ -1,33 +1,21 @@
 import './sort.scss'
-export const Sort = () => {
+export const Sort = ({sort,setSort}) => {
 
     const sortOptions = [
         {
             id:1,
-            value: "Latest"
-        },
-        {
-            id:2,
-            value: "Newest"
+            value: "Price ( Highest )"
         },
         {
             id:3,
-            value: "Popularity"
-        },
-        {
-            id:4,
-            value: "Price increasing"
-        },
-        {
-            id:5,
-            value: "Price Decreasing"
+            value: "Price ( Lowest )"
         },
     ]
   return (
     <div className="sort">
         <div className="sortWrapper">
-            <label htmlFor="sortBy">Sort By</label>
-            <select name="sortBy" id='sortBy'>
+            <label htmlFor="sortBy">Sort By :</label>
+            <select name="sortBy" id='sortBy' onChange={(e) => setSort(e.target.value)}>
                 {sortOptions && sortOptions.map(e => (
                     <option value={e.value}>{e.value}</option>
                 ))}

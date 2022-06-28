@@ -3,8 +3,12 @@ import './topbar.scss'
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import  CartContext  from '../../context/Context';
 
 export const Topbar = ({menuOpen,setMenuOpen}) => {
+
+  const {cartItems} = useContext(CartContext)
 
   const [english, setEnglish] = useState(true)
 
@@ -19,10 +23,10 @@ export const Topbar = ({menuOpen,setMenuOpen}) => {
           </div>
         </div>
         <div className="center">
-          <Link to="/" className='logo'>FW Store<span className='dot'>.</span></Link>
+          <Link to="/" className='logo'>LW Store<span className='dot'>.</span></Link>
         </div>
         <div className="right">
-          <div className="language" onClick={() => setEnglish(!english)}>
+          {/* <div className="language" onClick={() => setEnglish(!english)}>
             {english ? 
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -10 3020 2020">
               <g id="French_Flag_by_Adam_Stanislav">
@@ -50,8 +54,9 @@ export const Topbar = ({menuOpen,setMenuOpen}) => {
               </g>
             </svg>
             }
-          </div>
+          </div> */}
           <Link to ='/cart' className="cartIcon"><AiOutlineShoppingCart /></Link>
+          <span className='cartNumber'>{cartItems.length}</span>
         </div>
       </div>
     </div>

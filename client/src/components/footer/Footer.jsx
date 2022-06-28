@@ -8,7 +8,7 @@ export const Footer = () => {
   return (
     <div className="footer">
         <div className="left">
-            <h2 className='logo'>FW Store<span className='dot'>.</span></h2>
+            <h2 className='logo'>LW Store<span className='dot'>.</span></h2>
             <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur veniam numquam voluptatibus quisquam neque.             </p>
         </div>

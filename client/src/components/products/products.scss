@@ -5,15 +5,13 @@
     display: flex;
     flex-wrap: wrap;
     color: white;
-    position: relative;
-    top: -70px;
     margin-bottom: 4em;
 
     .singleProduct {
         margin: 1em;
-        width: 20%;
-        height: 32%;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  
+        width: 20em;
+        height: auto;
+        padding: 10px;
         border-radius: 5px;
         color: black;
         display: flex;
@@ -23,7 +21,7 @@
         transition: all .4s ease;
 
         @include mobile {
-            width: 40%;
+            width: 35%;
         }
       
         
@@ -35,9 +33,14 @@
             color: black;
 
             img {
-                height: 100%;
-                width: 100%;
+                height: 240px;
+                width: 240px;
+                border-radius: 10px;
                 // border: 5px solid black;
+                @include mobile {
+                    width: 120px;
+                    height: 120px;
+                }
             }
     
             .productName {

@@ -11,8 +11,8 @@ export const Home = () => {
   return (
     <div className="home">
         <SliderIntro />
-        <Collections />
-        <Newsletter />
+        {/* <Collections /> */}
+        {/* <Newsletter /> */}
         <Footer />
     </div>
   )

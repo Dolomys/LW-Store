@@ -2,6 +2,8 @@ import './slider.scss'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
+import {Link} from "react-router-dom"
+
 import motion from 'framer-motion'
 
 import Slider from "react-slick";
@@ -14,29 +16,29 @@ export const SliderIntro = () => {
         swipeToSlide: true,
         autoplay: true,
         infinite: true,
-        speed: 300,
+        speed: 3000,
         slidesToShow: 1,
         slidesToScroll: 1
       };
 
     const infos = [
         {
-            title:"Autumn Collection",
+            title:"Welcome To LW Store",
             desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, deleniti!",
-            link:"#",
-            img: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+            link:"/products",
+            img: "https://images.unsplash.com/photo-1593010932917-92bd21088dee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
         },
         {
-            title:"Summer Collection",
+            title:"Shoes for everyone",
             desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, deleniti!",
-            link:"#",
-            img: "https://images.unsplash.com/photo-1574296148664-3685383579c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80",
+            link:"/products",
+            img: "https://images.unsplash.com/photo-1588117305388-c2631a279f82?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
         },
         {
-            title:"Winter Collection",
+            title:"For every occasion, City or Outdoor !",
             desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, deleniti!",
-            link:"#",
-            img: "https://images.unsplash.com/photo-1528283982967-bde1053cf71a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=416&q=80",
+            link:"/products",
+            img: "https://images.unsplash.com/photo-1490036293550-29261601ccb9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
         },
     ]
 
@@ -50,7 +52,7 @@ export const SliderIntro = () => {
             <div className="right">
                 <h1>{slide.title}</h1>
                 <p>{slide.desc}</p>
-                <a href={slide.link}>See Collection </a>
+                <Link to={slide.link}>See Products </Link>
             </div>
         </div>
     ))}

@@ -2,98 +2,101 @@ import "./products.scss"
 
 import  {motion} from "framer-motion"
 import { Sort } from "../sort/Sort"
-import { Link } from "react-router-dom"
+import { Link, useParams, useSearchParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import axios from 'axios'
+import { productsData } from "../../data/products"
 
-export const Products = () => {
+export const Products = ({sort, filters, setFilters}) => {
 
-  const products = [
-    {
-      id:1,
-      img: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80",
-      name: "Red Shoes",
-      price: 999
-    },
-    {
-      id:1,
-      img: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80",
-      name: "Red Shoes",
-      price: 999
-    },
-    {
-      id:1,
-      img: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80",
-      name: "Red Shoes",
-      price: 999
-    },
-    {
-      id:1,
-      img: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80",
-      name: "Red Shoes",
-      price: 999
-    },
-    {
-      id:1,
-      img: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80",
-      name: "Red Shoes",
-      price: 999
-    },
-    {
-      id:1,
-      img: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80",
-      name: "Red Shoes",
-      price: 999
-    },
-    {
-      id:1,
-      img: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80",
-      name: "Red Shoes",
-      price: 999
-    },
-    {
-      id:1,
-      img: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80",
-      name: "Red Shoes",
-      price: 999
-    },
-    {
-      id:1,
-      img: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80",
-      name: "Red Shoes",
-      price: 999
-    },
-    {
-      id:1,
-      img: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80",
-      name: "Red Shoes",
-      price: 999
-    },
-    {
-      id:1,
-      img: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80",
-      name: "Red Shoes",
-      price: 999
-    },
-    {
-      id:1,
-      img: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80",
-      name: "Red Shoes",
-      price: 999
-    },
-  ]
+
+  const [products, setProducts] = useState([])
+  const [finalProducts, setFinalProducts] = useState()
+
+  //First Render
+  useEffect(() => {
+    const res = async() => {
+      // let call = await axios.get( `http://localhost:5000/api/products/`)
+      // setProducts(call.data)
+      setProducts(productsData)
+    }
+    res()
+
+    //Reset filters on render
+    setFilters()
+    
+  },[])
+
+  //Re-Render when filter update
+  useEffect(() => {
+      filters && setFinalProducts(
+        products.filter((item) =>
+          Object.entries(filters).every(([key, value]) =>
+            item[key].includes(value)
+          )
+        )
+      );
+  },[filters])
+
+
+  //Re-Render when sort update
+  useEffect(() => {
+    if(finalProducts) {
+      if (sort === "Price ( Lowest )") {
+        setFinalProducts((prev) =>
+          [...prev].sort((a, b) => a.price - b.price)
+        );
+      } 
+      else {
+        setFinalProducts((prev) =>
+          [...prev].sort((a, b) => b.price - a.price)
+        );
+      }
+    }
+    else {
+      if (sort === "Price ( Lowest )") {
+        setProducts((prev) =>
+          [...prev].sort((a, b) => a.price - b.price)
+        );
+      } 
+      else {
+        setProducts((prev) =>
+          [...prev].sort((a, b) => b.price - a.price)
+        );
+      }
+    }
+  },[sort])
+
+
   return (
     <div className="products">
-      {products && products.map(product => (
+      {finalProducts && finalProducts.map(product => (
         <motion.div
         className="singleProduct"
         whileHover={{scale:"1.1"}}
         whileTap={{scale:'0.9'}}
+        key={product._id}
         >
-          <Link to={`/product/${product.id}`}>
+          <Link to={`/product/${product._id}`}>
             <img src={product.img} alt="product image" />
-            <span className="productName">{product.name}</span>
+            <span className="productName">{product.title}</span>
             <span className="productPrice">{product.price}€</span>
           </Link>
-     
+        </motion.div>
+      ))}
+
+      {!finalProducts && products.map(product => (
+        <motion.div
+        className="singleProduct"
+        whileHover={{scale:"1.1"}}
+        whileTap={{scale:'0.9'}}
+        key={product._id}
+        >
+          <Link to={`/product/${product._id}`}>
+            <img src={product.img} alt="product image" />
+            <span className="productName">{product.title}</span>
+            <span className="productPrice">{product.price}€</span>
+          </Link>
         </motion.div>
       ))}
     </div>
