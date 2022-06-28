@@ -3,6 +3,7 @@ import "./footer.scss"
 import { GiPositionMarker } from "react-icons/gi";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -16,19 +17,18 @@ export const Footer = () => {
             <h2>Links</h2>
             <div className="links">
             <ul>
-                <li>Home</li>
-                <li>Products</li>
-                <li>About</li>
-                <li>About</li>
+                <Link to='/'>Home</Link>
+                <Link to ='/products'>Products</Link>
+                <Link to='/cart'>Cart</Link>
             </ul>
             </div>
         </div>
         <div className="right">
             <h2>Contact</h2>
             <div className="contact">
-                <p><GiPositionMarker /> 69 rue du Mont Olympe</p>
+                <p><GiPositionMarker /> 6 rue des bons enfants</p>
                 <p><BsFillTelephoneFill /> +33 06 95 52 06 38</p>
-                <p><AiOutlineMail /> 69 rue du Mont Olympe</p>
+                <p><AiOutlineMail /> alexandreflo@hotmail.fr</p>
             </div>
           
         </div>

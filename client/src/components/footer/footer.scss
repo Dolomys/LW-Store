@@ -50,8 +50,10 @@
                 list-style: none;
                 padding: 0;
     
-                li {
+                a {
                     margin-top: 1em;
+                    color: white;
+                    text-decoration: none;
                 }
             }
         }
@@ -62,7 +64,6 @@
         flex: 1;
         
         .contact {
-            margin-top: 1em;
             display: flex;
             flex-direction: column;
 
